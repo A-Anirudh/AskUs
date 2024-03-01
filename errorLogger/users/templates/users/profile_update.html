@@ -1,0 +1,27 @@
+{% extends 'log/base.html' %}
+{% block content %}
+{%load crispy_forms_tags %} 
+<div class='container mt-4'>
+{% if profile.username == user.username %}
+
+  <form method='POST' autocomplete="off" enctype="multipart/form-data" >
+    {% csrf_token %}
+
+    <fieldset class='form-group'>
+        <legend class='border-bottom mb-4'>Update Profile</legend>
+        {{ form | crispy }}
+        {{ form2 | crispy }}
+    </fieldset>
+
+    <div class='form-group'>
+        
+    <button class='btn btn-outline-info' type='submit'>Update</button>
+
+    </div>
+
+  </form>
+
+{% endif %}
+
+</div>
+{% endblock content %}

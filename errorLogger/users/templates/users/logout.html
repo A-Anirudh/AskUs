@@ -1,0 +1,18 @@
+{% extends 'log/base.html' %}
+
+
+
+{% block content %}
+<title>Error logger - logout</title>
+
+    <div id='login' class='content-section card p-4'>
+    <h2>You have been logged out successfully!</h2>
+
+    <div class="border-top pt-3">
+        <p>Login again <a class='ml-2 btn btn-outline-info' href="{% url 'login' %}">Login</a></p>
+    
+    </div>
+
+    </div>
+
+{% endblock content %}

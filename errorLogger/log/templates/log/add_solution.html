@@ -1,0 +1,18 @@
+{% extends 'log/base.html' %}
+{%load crispy_forms_tags %} 
+{% block content %}
+
+
+<form autocomplete="off" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div style='resize : none' class='form'>
+    {{ form | crispy }}
+    
+    </div>
+    
+    <input class='btn btn-outline btn-info button mb-4' type="submit" value="Submit">
+</form>
+
+
+
+{% endblock content  %}

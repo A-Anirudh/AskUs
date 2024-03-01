@@ -1,0 +1,29 @@
+{% extends 'log/base.html' %}
+{%load crispy_forms_tags %}
+{% block content %}
+
+<title>Ask Us - New Log</title>
+    <div id='question' class='content-section card p-4'>
+    <form method='POST' autocomplete="off" enctype="multipart/form-data" >
+    {% csrf_token %}
+
+    <fieldset class='form-group'>
+        <legend class='border-bottom mb-4'>Ask your doubt</legend>
+        {{ form | crispy }}
+    </fieldset>
+
+        <div class='form-group'>
+        
+        <button class='btn btn-outline-info' type='submit'>Add</button>
+
+        </div>
+
+    </form>
+
+
+
+    </div>
+
+
+
+{% endblock content %}

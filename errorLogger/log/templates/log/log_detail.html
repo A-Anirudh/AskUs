@@ -1,0 +1,66 @@
+{% extends 'log/base.html' %}
+{%load crispy_forms_tags %}
+{% block content %}
+
+<title>Ask Us - {{object.title}}</title>
+
+<div class="main container mt-4 p-3 mb-4">
+<img style='display:inline;' class='rounded-circle account-img' src="{{ object.author.profile.avatar.url }}" alt="">
+
+  <h1 style='display:inline;'>
+    <a href="#">{{ object.title }}</a>
+  </h1>
+
+
+  <p>Author: <a href="{% url 'profile' object.author   %}">{{ object.author }}</a></p>
+  <p>Date and time of creation: {{ object.created }}</p>
+  <span> Details </span>:
+  <p class="big pl-4" id='big'>{{ object.content }} <br />
+
+  {% if object.image %}
+  <img style="width: 20vw" class="mt-4" src="{{ object.image.url }}" alt="image" />
+  {% else %} 
+  {% endif %}
+
+  </p>
+
+  <div>
+    <button class="button-like"><i class="far fa-thumbs-up"></i></button>
+  </div>
+</div>
+<br />
+
+<a
+  class="btn btn-outline btn-info button-solution"
+  href="{% url 'log-solution-create' object.slug%}"
+  >Add solution</a
+>
+<br>
+
+
+{% if object.solutions_set.all%}
+
+
+
+<h2 class="container">Solutions</h2>
+<br />
+
+{% for solution in object.solutions_set.all %}
+
+<section class="container main p-4">
+  {{ solution.solution }}
+  <a
+    href="{% url 'log-solution' solution.slug %}"
+    style="font-size: 1rem"
+    ><br />
+    Read more</a
+  >
+</section>
+<br />
+{% endfor %} 
+{% else %}
+
+<h3 class="container">There is no solution as of now.</h3>
+
+{% endif %} 
+{% endblock content %}

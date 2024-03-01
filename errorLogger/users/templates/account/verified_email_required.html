@@ -1,0 +1,14 @@
+{% extends "log/base.html" %}
+{% block content %}
+<div class="content-section container">
+
+{% url 'account_email' as email_url %}
+
+    <legend>Verify Your E-mail Address</legend>
+    <p>We have sent an e-mail to you for
+verification. Please click on the link inside this e-mail. Please
+contact us if you do not receive it within a few minutes</p>
+<p><strong>Note:</strong> you can still <a href="{{ email_url }}">change your e-mail address</a>.</p>
+
+</div>
+{% endblock content %}

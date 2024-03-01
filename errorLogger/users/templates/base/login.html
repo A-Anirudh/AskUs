@@ -1,0 +1,37 @@
+{% extends 'log/base.html' %}
+{%load crispy_forms_tags %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+{% block content %}
+
+<title>Ask Us - login</title>
+
+    <div id='login' class='content-section card p-4'>
+    <form method='POST' autocomplete="off" >
+    {% csrf_token %}
+
+    <fieldset class='form-group'>
+        <legend class='border-bottom mb-4'>Sign In</legend>
+        {{ form | crispy }}
+    </fieldset>
+
+        <div class='form-group'>
+        
+        <button class='btn btn-outline-info' type='submit'>Login</button>
+
+        </div>
+
+    </form>
+
+    <div class="border-top pt-3">
+        <p>Don't have an account? <a class='ml-2 btn btn-outline-info' href="{% url 'register' %}">Sign up</a></p>
+
+        <a href={% url 'reset_password' %}>Forgot password?</a>
+    
+    </div>
+
+    </div>
+
+
+{% endblock content %}

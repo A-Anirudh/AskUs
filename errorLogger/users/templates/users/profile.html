@@ -1,0 +1,65 @@
+{% extends 'log/base.html' %}
+{% block content %}
+{%load crispy_forms_tags %} 
+<title>Error logger - Profile {{ profile.username }}</title>
+
+
+<div id='profile' class="content-section card  p-4">
+
+
+  <div class="media">
+
+  <img class="rounded-circle account-img" src="{{ profile.profile.avatar.url }}">
+
+
+
+    <div class="media-body">
+      <h2 class="account-heading">{{profile.username}} </h2>
+      <p >{{profile.email}}</p>
+      <p>Created on: {{ profile.profile.created }}</p>
+      {% if profile.username == user.username %}
+
+      <p>Last updated on : {{ profile.profile.updated }}</p>
+    {% endif %}
+    </div>
+  </div>
+
+
+
+<a class='btn btn-outline-info btn-small' style='width:120px;' href="{% url 'profile-update' profile.username %}">Update</a>
+
+
+  <!-- Posts here -->
+
+
+<div class="container border-top mt-4 pt-4">
+
+  <legend>Posts</legend>
+  
+  
+{% for i in all_post_by_user %}
+
+  <div id="you-want-lazyload" data-lazyload="&lt;p&gt;Anything you want to lazyload&lt;/p&gt;" class='m-4'>
+    <div class="container main m-4" style="width: 50vw;">
+        <a class='link' href="{% url 'log-detail' i.slug   %}"><h2 >{{ i.title }}</h2></a>
+        <p>{{ i.content }}</p>
+        <p class='small'>{{ i.created }}</p>
+    </div>
+
+  </div>
+
+  {% endfor %}
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+{% endblock content %}

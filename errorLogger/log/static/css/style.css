@@ -1,0 +1,335 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+body{
+    background: #f4f4f4;
+    color: black;
+    z-index: 1;
+    height: 100%;
+}
+
+.form{
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:auto;
+    height: 80vh;
+
+}
+
+
+textarea {
+   resize: none;
+
+}
+
+
+.button{
+    text-align: center;
+    display: inline-block;
+    position:relative;
+    left: 11.5rem;
+    margin-left: 2rem;
+    margin-bottom:2rem;
+    
+}
+
+.button-solution{
+    text-align: center;
+    display: inline-block;
+    position:relative;
+    left: 10%;
+    margin: 2rem;
+
+}
+
+
+.main{
+    border: 2px solid white;
+    border-radius: 0.4rem;
+    box-shadow:1px 1px 5px 3px black;
+    z-index: 2;
+}
+
+
+
+
+.nav{
+    position: sticky;
+    top: 0;
+    background-color: steelblue;
+    border-radius: 2rem;
+    width: 80vw;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    padding-left: 1.4rem;
+}
+
+.main a{
+    color: black;
+    text-decoration: none;
+    z-index: 3;
+
+}
+
+.main a:hover{
+    color: red;
+}
+
+
+.big{
+    font-size: 20px;
+    font-weight: 500;
+    color: #3c3f45;
+    border: 2px solid steelblue;
+    margin-top: 20px;
+    text-align: start;
+    padding: 10px;
+}
+
+.comment{
+    color: black;
+    margin: auto;
+    padding: 1rem;
+    margin-top: 20px;
+}
+
+.comment a{
+    color: black !important;
+    text-decoration: none;
+}
+
+
+.comment a:hover{
+    color: red;
+}
+
+.comment-form{
+    margin-top: 20px;
+}
+
+
+.button-like{
+    background:none;
+    border:none;
+}
+
+.button-like:focus{
+    background:none;
+    border:none;
+    outline: none;
+}
+
+
+.comments{
+    margin-bottom: 100px;
+}
+
+
+.neonText {
+  color: #0fa;
+  text-shadow:
+    0 0 7px #0fa,
+    0 0 10px #0fa,
+    0 0 21px #0fa,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
+}
+
+
+
+footer {
+  background: #000;
+  color: wheat;
+  padding: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 100%;
+}
+
+.scrollable {
+  min-height: calc(100vh - 70px); /*Subtract height of footer*/
+  overflow: auto;
+}
+
+
+
+.answers{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.btn-google {
+    color: white;
+    background-color: #ea4335;
+    width: auto;
+    margin-left: 10vw;
+
+}
+
+.btn-google a {
+    color: white;
+}
+
+.btn-google a:hover{
+    text-decoration: none;
+    opacity: 0.9;
+    color: #3c3f45;
+}
+
+.sol{
+    font-size: 3rem !important ;
+    font-weight: 400;
+}
+
+.content-section{
+    width: 80vw !important;
+    margin: 2vh 0 1vh 10vw;
+}
+
+
+.account-img {
+  height: 100px;
+  width: 100px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+
+.article-img {
+  height: 100px;
+  width: 100px;
+  margin-right: 16px;
+}
+
+
+
+@media(max-width:800px){
+    .main{
+        width:80vw !important;
+        margin: auto;
+        padding-right: 1rem;
+        box-shadow: none;
+        overflow:hidden;
+    }
+
+    .btn-google {
+    color: white;
+    background-color: #ea4335;
+    width: auto;
+    margin-left: 10vw;
+    margin-bottom: 2vh;
+
+
+}
+
+
+    .nav{
+    position: sticky;
+    top: 0;
+    background-color: steelblue;
+        border-radius: 0;
+    width: 100vw;
+    margin: none;
+    margin-top: 0;
+    padding: 0.7rem;
+
+}
+
+
+
+    .main h1 a{
+        overflow: hidden;
+        font-size: 1.6rem;
+
+    }
+
+    
+    .main h1, h2{
+        height: 3rem;
+            display: inline-block;
+
+    }
+
+    .comment-heading{
+        height: 3rem;
+        font-size: 1.3rem;
+    }
+
+    .hero{
+        margin-left: 1rem;
+    }
+
+    .content-section{
+    width: 80vw !important;
+    margin: 2vh 1rem;
+}
+
+}
+
+/* Dark Mode */
+
+
+.darkmode{
+    color: white ;
+    background: #3c3f45 ;
+}
+
+.darkmode a{
+    color: white;
+}
+
+
+.darkmode #login,
+.darkmode #register,
+.daadrkmode #logout{
+    background: rgba(27, 20, 24, 0.945);
+    
+}
+
+.darkmode .big{
+    color: #3c3f45;
+    background: white;
+}
+
+
+.darkmode #profile,
+.darkmode #question
+{
+    background-color: #3c3f45;
+}
+
+.profile{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+}
+
+
+#darkmode-button{
+    width: 70px;
+    background: none;
+    margin-left: auto;
+    height: 30px;
+    border: none;
+    outline: none;
+
+}   
+
+#darkmode-button i{
+    size: 30px;
+}
+
+

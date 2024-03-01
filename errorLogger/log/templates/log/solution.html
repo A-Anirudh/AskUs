@@ -1,0 +1,59 @@
+{% extends 'log/base.html' %}
+{%load crispy_forms_tags %} 
+{% block content %}
+<title> Ask Us - {{ log }}</title>
+
+
+
+
+<section class="container main mt-4 p-3">
+{% if solution %}
+    <h1>{{ solution.log.title }}</h1>
+    <p class='sol'>Solution : </p> 
+    <p class='big'>  <span class='p-4'>{{ solution.solution }}</span> <br>
+
+        {% if solution.image %}
+    <img style="width: 20vw" class='mt-4' src="{{ solution.image.url }}" alt="image">
+        {% endif %}
+
+
+   
+</p>
+By:   <a href="{% url 'profile' username=solution.author %}">{{ solution.author }}</a>  
+ <br>
+ {{ solution.created }}
+
+{% else %}
+    <h2>No solution as of now</h2>
+
+{% endif %}
+
+</section>
+
+
+<section class="container mt-5 comments">
+
+    <h3 class='comment-heading'>Comments</h3>
+
+
+
+    <form autocomplete="off" class='comment-form' method='POST'>
+    
+        {% csrf_token %}
+
+        {{ form | crispy  }}
+
+        <input class='btn btn-outline btn-info' type="submit" value="Add Comment">
+
+    </form>
+
+    {% for i in solution.comments_set.all %}
+
+    <div class="comment big"><small> {% if i.author %}<a href="{% url 'profile' username=i.author %}">{{ i.author }}</a> {% endif %}</small> <br> {{ i.comment }}</div>
+    <p class='small'>{{ i.created }} </p>
+    
+   {% endfor %}
+    
+</section>
+
+{% endblock content  %}

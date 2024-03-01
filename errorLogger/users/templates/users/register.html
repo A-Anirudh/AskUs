@@ -1,0 +1,30 @@
+{% extends 'log/base.html' %}
+{%load crispy_forms_tags %} 
+
+{% block content %}
+<title>Error logger - Sign up</title>
+    <div id='register' class='content-section card p-4'>
+    <form method='POST' autocomplete="off" >
+    {% csrf_token %}
+
+    <fieldset class='form-group'>
+        <legend class='border-bottom mb-4'>Join Today</legend>
+        {{ form | crispy }}
+    </fieldset>
+
+        <div class='form-group'>
+        
+        <button class='btn btn-outline-info' type='submit'>Sign Up</button>
+
+        </div>
+
+    </form>
+
+    <div class="border-top pt-3">
+        <p>Already have an account? <a class='ml-2 btn btn-outline-info' href="{% url 'login' %}">Login</a></p>
+    
+    </div>
+
+    </div>
+
+{% endblock content %}
